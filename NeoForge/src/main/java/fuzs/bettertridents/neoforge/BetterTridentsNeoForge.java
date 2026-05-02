@@ -1,10 +1,10 @@
 package fuzs.bettertridents.neoforge;
 
-import fuzs.bettertridents.BetterTridents;
-import fuzs.bettertridents.data.ModDatapackRegistriesProvider;
-import fuzs.bettertridents.data.ModRecipeProvider;
-import fuzs.bettertridents.data.loot.ModEntityInjectionLootProvider;
-import fuzs.puzzleslib.api.core.v1.ModConstructor;
+import fuzs.bettertridents.common.BetterTridents;
+import fuzs.bettertridents.common.data.ModDatapackRegistriesProvider;
+import fuzs.bettertridents.common.data.ModRecipeProvider;
+import fuzs.bettertridents.common.data.loot.ModEntityInjectionLootProvider;
+import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
 import net.minecraft.server.packs.PackType;
 import net.neoforged.fml.common.Mod;

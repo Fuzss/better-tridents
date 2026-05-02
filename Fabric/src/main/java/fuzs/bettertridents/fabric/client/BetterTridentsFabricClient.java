@@ -1,8 +1,8 @@
 package fuzs.bettertridents.fabric.client;
 
-import fuzs.bettertridents.BetterTridents;
-import fuzs.bettertridents.client.BetterTridentsClient;
-import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
+import fuzs.bettertridents.common.BetterTridents;
+import fuzs.bettertridents.common.client.BetterTridentsClient;
+import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
 import net.fabricmc.api.ClientModInitializer;
 
 public class BetterTridentsFabricClient implements ClientModInitializer {
