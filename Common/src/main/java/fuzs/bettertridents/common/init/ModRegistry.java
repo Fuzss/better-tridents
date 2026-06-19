@@ -1,6 +1,6 @@
 package fuzs.bettertridents.common.init;
 
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.Codec;
 import fuzs.bettertridents.common.BetterTridents;
 import fuzs.bettertridents.common.advancements.critereon.WetEntityPredicate;
 import fuzs.bettertridents.common.world.entity.item.LoyalExperienceOrb;
@@ -9,8 +9,8 @@ import fuzs.puzzleslib.common.api.attachment.v4.DataAttachmentRegistry;
 import fuzs.puzzleslib.common.api.attachment.v4.DataAttachmentType;
 import fuzs.puzzleslib.common.api.data.v2.AbstractDatapackRegistriesProvider;
 import fuzs.puzzleslib.common.api.init.v3.registry.RegistryManager;
-import net.minecraft.advancements.criterion.EntityPredicate;
-import net.minecraft.advancements.criterion.EntityTypePredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.RegistrySetBuilder;
@@ -51,7 +51,7 @@ public class ModRegistry {
                     .sized(0.5F, 0.5F)
                     .clientTrackingRange(6)
                     .updateInterval(20));
-    public static final Holder.Reference<MapCodec<WetEntityPredicate>> IS_WET_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
+    public static final Holder.Reference<Codec<WetEntityPredicate>> IS_WET_ENTITY_SUB_PREDICATE_TYPE = REGISTRIES.register(
             Registries.ENTITY_SUB_PREDICATE_TYPE,
             "is_wet",
             () -> WetEntityPredicate.CODEC);
@@ -89,6 +89,6 @@ public class ModRegistry {
                                                         .build()),
                                         LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
                                                 EntityPredicate.Builder.entity()
-                                                        .subPredicate(WetEntityPredicate.INSTANCE)))));
+                                                        .put(WetEntityPredicate.CODEC, WetEntityPredicate.INSTANCE)))));
     }
 }

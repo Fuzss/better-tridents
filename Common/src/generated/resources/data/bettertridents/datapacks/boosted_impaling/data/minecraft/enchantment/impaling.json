@@ -21,16 +21,14 @@
               "condition": "minecraft:entity_properties",
               "entity": "this",
               "predicate": {
-                "type": "#minecraft:sensitive_to_impaling"
+                "minecraft:entity_type": "#minecraft:sensitive_to_impaling"
               }
             },
             {
               "condition": "minecraft:entity_properties",
               "entity": "this",
               "predicate": {
-                "type_specific": {
-                  "type": "bettertridents:is_wet"
-                }
+                "bettertridents:is_wet": {}
               }
             }
           ]
