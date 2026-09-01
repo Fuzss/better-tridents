@@ -6,11 +6,17 @@
     "26.1.x": "maintained",
     "26.2.x": "primary"
   },
-  "properties": {
-    "distributions.curseforge.id": "666941",
-    "distributions.curseforge.slug": "better-tridents",
-    "distributions.github.slug": "better-tridents",
-    "distributions.modrinth.id": "KNUSlHiU",
-    "distributions.modrinth.slug": "better-tridents"
+  "distributions": {
+    "curseforge": {
+      "id": "666941",
+      "slug": "better-tridents"
+    },
+    "github": {
+      "slug": "better-tridents"
+    },
+    "modrinth": {
+      "id": "KNUSlHiU",
+      "slug": "better-tridents"
+    }
   }
 }
