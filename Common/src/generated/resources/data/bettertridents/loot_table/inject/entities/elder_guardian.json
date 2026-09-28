@@ -8,7 +8,7 @@
           "name": "bettertridents:trident_fragment"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "bettertridents:inject/entities/elder_guardian"
