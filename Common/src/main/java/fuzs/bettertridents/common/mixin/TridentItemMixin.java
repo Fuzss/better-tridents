@@ -23,20 +23,20 @@ abstract class TridentItemMixin extends Item {
     }
 
     @ModifyVariable(method = "releaseUsing", at = @At("STORE"), ordinal = 0)
-    public ThrownTrident releaseUsing(ThrownTrident thrownTrident, ItemStack itemStack, Level level, LivingEntity thrower) {
+    public ThrownTrident releaseUsing(ThrownTrident trident, ItemStack itemStack, Level level, LivingEntity entity) {
         if (!BetterTridents.CONFIG.get(ServerConfig.class).returnTridentToSlot) {
-            return thrownTrident;
+            return trident;
         }
 
-        if (thrower instanceof Player player && thrower.getUseItem() == itemStack) {
-            if (thrower.getUsedItemHand() == InteractionHand.OFF_HAND) {
-                ModRegistry.TRIDENT_SLOT_ATTACHMENT_TYPE.set(thrownTrident, 40);
+        if (entity instanceof Player player && entity.getUseItem() == itemStack) {
+            if (entity.getUsedItemHand() == InteractionHand.OFF_HAND) {
+                ModRegistry.TRIDENT_SLOT_ATTACHMENT_TYPE.set(trident, 40);
             } else {
                 int selectedInventorySlot = player.getInventory().getSelectedSlot();
-                ModRegistry.TRIDENT_SLOT_ATTACHMENT_TYPE.set(thrownTrident, selectedInventorySlot);
+                ModRegistry.TRIDENT_SLOT_ATTACHMENT_TYPE.set(trident, selectedInventorySlot);
             }
         }
 
-        return thrownTrident;
+        return trident;
     }
 }

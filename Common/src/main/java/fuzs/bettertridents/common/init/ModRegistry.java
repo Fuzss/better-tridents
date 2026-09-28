@@ -7,13 +7,12 @@ import fuzs.bettertridents.common.world.entity.item.LoyalExperienceOrb;
 import fuzs.bettertridents.common.world.entity.item.LoyalItemEntity;
 import fuzs.puzzleslib.common.api.attachment.v4.DataAttachmentRegistry;
 import fuzs.puzzleslib.common.api.attachment.v4.DataAttachmentType;
-import fuzs.puzzleslib.common.api.data.v2.AbstractDatapackRegistriesProvider;
+import fuzs.puzzleslib.common.api.init.v3.registry.ContentRegistrationHelper;
 import fuzs.puzzleslib.common.api.init.v3.registry.RegistryManager;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.tags.EnchantmentTags;
@@ -35,8 +34,6 @@ import net.minecraft.world.level.storage.loot.predicates.AnyOfCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 
 public class ModRegistry {
-    public static final RegistrySetBuilder REGISTRY_SET_BUILDER = new RegistrySetBuilder().add(Registries.ENCHANTMENT,
-            ModRegistry::bootstrapEnchantments);
     static final RegistryManager REGISTRIES = RegistryManager.from(BetterTridents.MOD_ID);
     public static final Holder.Reference<Item> TRIDENT_FRAGMENT_ITEM = REGISTRIES.registerItem("trident_fragment");
     public static final Holder.Reference<EntityType<LoyalItemEntity>> LOYAL_ITEM_ENTITY_TYPE = REGISTRIES.registerEntityType(
@@ -70,7 +67,7 @@ public class ModRegistry {
         HolderGetter<Item> items = context.lookup(Registries.ITEM);
         HolderGetter<EntityType<?>> entityTypes = context.lookup(Registries.ENTITY_TYPE);
         HolderGetter<Enchantment> enchantments = context.lookup(Registries.ENCHANTMENT);
-        AbstractDatapackRegistriesProvider.registerEnchantment(context,
+        ContentRegistrationHelper.registerEnchantment(context,
                 net.minecraft.world.item.enchantment.Enchantments.IMPALING,
                 Enchantment.enchantment(Enchantment.definition(items.getOrThrow(ItemTags.TRIDENT_ENCHANTABLE),
                                 2,
