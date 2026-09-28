@@ -38,7 +38,6 @@ public class BetterTridents implements ModConstructor {
     public static final ConfigHolder CONFIG = ConfigHolder.builder(MOD_ID)
             .server(ServerConfig.class)
             .common(CommonConfig.class);
-    public static final Identifier BOOSTED_IMPALING_ID = id("boosted_impaling");
     public static final Identifier TRIDENT_RECIPE_ID = id("trident_recipe");
 
     @Override
@@ -61,7 +60,6 @@ public class BetterTridents implements ModConstructor {
 
     @Override
     public void onAddDataPackFinders(PackRepositorySourcesContext context) {
-        context.registerBuiltInPack(BOOSTED_IMPALING_ID, Component.literal("Impaling When Wet"), true);
         context.registerBuiltInPack(TRIDENT_RECIPE_ID, Component.literal("Trident Recipe"), true);
     }
 

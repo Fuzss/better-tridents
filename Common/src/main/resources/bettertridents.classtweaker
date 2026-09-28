@@ -4,3 +4,7 @@ accessible  field   net/minecraft/world/entity/ExperienceOrb    age I
 accessible  field   net/minecraft/world/entity/item/ItemEntity  age I
 accessible  field   net/minecraft/world/entity/item/ItemEntity  bobOffs F
 mutable field   net/minecraft/world/entity/item/ItemEntity  bobOffs F
+accessible  method  net/minecraft/world/item/enchantment/Enchantment$Builder    getEffectsList (Lnet/minecraft/core/component/DataComponentType;)Ljava/util/List;
+accessible  field   net/minecraft/world/item/enchantment/Enchantment$Builder   effectMapBuilder    Lnet/minecraft/core/component/DataComponentMap$Builder;
+accessible  class   net/minecraft/resources/RegistryLoadTask$PendingRegistration
+accessible  method  net/minecraft/resources/RegistryLoadTask$PendingRegistration <init>    (Lnet/minecraft/resources/ResourceKey;Lcom/mojang/datafixers/util/Either;Lnet/minecraft/core/RegistrationInfo;)V
