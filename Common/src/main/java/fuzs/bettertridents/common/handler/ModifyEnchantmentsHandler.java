@@ -1,6 +1,8 @@
 package fuzs.bettertridents.common.handler;
 
+import fuzs.bettertridents.common.BetterTridents;
 import fuzs.bettertridents.common.advancements.critereon.WetEntityPredicate;
+import fuzs.bettertridents.common.config.CommonConfig;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
 import net.minecraft.core.HolderGetter;
@@ -26,14 +28,17 @@ public final class ModifyEnchantmentsHandler {
 
     public static boolean modifyEnchantment(ResourceKey<Enchantment> key, Enchantment.Builder builder, RegistryOps.RegistryInfoLookup lookup) {
         if (key == Enchantments.IMPALING) {
-            modifyImpaling(builder, lookup);
-            return true;
+            return modifyImpaling(builder, lookup);
         } else {
             return false;
         }
     }
 
-    private static void modifyImpaling(Enchantment.Builder builder, RegistryOps.RegistryInfoLookup lookup) {
+    private static boolean modifyImpaling(Enchantment.Builder builder, RegistryOps.RegistryInfoLookup lookup) {
+        if (!BetterTridents.CONFIG.get(CommonConfig.class).boostImpaling) {
+            return false;
+        }
+
         // Additionally, apply to entities that are in water or rain, next to the vanilla sensitive_to_impaling entity type.
         HolderGetter<EntityType<?>> entityTypes = lookup.lookup(Registries.ENTITY_TYPE).orElseThrow();
         builder.getEffectsList(EnchantmentEffectComponents.DAMAGE).clear();
@@ -47,5 +52,6 @@ public final class ModifyEnchantmentsHandler {
                         LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
                                 EntityPredicate.Builder.entity()
                                         .put(WetEntityPredicate.CODEC, WetEntityPredicate.INSTANCE))));
+        return true;
     }
 }
